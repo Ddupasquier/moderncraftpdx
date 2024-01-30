@@ -32,6 +32,7 @@
 		right: 0;
 		border-top: 5px double black;
 		border-left: 5px double black;
+		z-index: 1000;
 	}
 
 	.paletteItem {

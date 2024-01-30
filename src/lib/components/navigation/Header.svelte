@@ -28,6 +28,7 @@
 		justify-content: space-between;
 		background-color: var(--contrast-metal);
 		padding: 0 20px;
+		z-index: 1000;
 	}
 
 	nav ul {
