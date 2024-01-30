@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import { siteConstants } from '$lib/site-constants';
 	import HeaderItem from './HeaderItem.svelte';
 	import { navItems } from './nav-items';
 </script>
@@ -7,15 +8,15 @@
 <header>
 	<div>
 		{#if $page.url.pathname !== '/'}
-			<HeaderItem navItem={{ href: '/', text: 'Home' }} />
+			<HeaderItem navItem={{ href: '/', text: siteConstants.businessName }} />
 		{/if}
 	</div>
 
 	<nav>
 		<ul>
-			{#each navItems as item}
+			{#each navItems as item, i}
 				<li aria-current={$page.url.pathname === item.href ? 'page' : undefined}>
-					<HeaderItem navItem={item} />
+					<HeaderItem navItem={item} index={i} />
 				</li>
 			{/each}
 		</ul>
@@ -27,7 +28,7 @@
 		display: flex;
 		justify-content: space-between;
 		background-color: var(--contrast-metal);
-		padding: 0 20px;
+		height: var(--header-height);
 		z-index: 1000;
 	}
 

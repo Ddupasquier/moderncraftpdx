@@ -5,7 +5,7 @@
 </script>
 
 <div class="app">
-	<Palette />
+	<!-- <Palette /> -->
 	
 	<main>
 		<Header />

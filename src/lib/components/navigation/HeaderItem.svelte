@@ -15,6 +15,7 @@
 	}
 
 	export let navItem: NavItemProps;
+	export let index: number | null = null;
 
 	let dropdownVisible = false;
 
@@ -103,18 +104,19 @@
 	}
 
 	.chevron {
+		margin-top: 0.5rem;
 		margin-left: 0.3125rem;
-		font-size: 0.75rem;
+		font-size: 0.5rem;
 	}
 
 	.dropdown {
 		display: none;
 		position: absolute;
-		background-color: #f9f9f9;
+		background-color: var(--off-white-plum);
 		width: max-content;
 		box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
 		z-index: 1;
-		top: 100%;
+		top: var(--header-height);
 		left: 0;
 	}
 

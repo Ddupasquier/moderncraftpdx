@@ -74,7 +74,7 @@
 <style>
 	.carousel {
 		position: relative;
-		height: 50rem;
+		height: 100vh;
 		overflow: hidden;
 	}
 

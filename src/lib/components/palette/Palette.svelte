@@ -27,7 +27,7 @@
 <style>
 	.palette {
 		display: flex;
-		position: absolute;
+		position: fixed;
 		bottom: 0;
 		right: 0;
 		border-top: 5px double black;

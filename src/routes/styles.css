@@ -40,6 +40,8 @@
 	/* Light steel gray with a blue undertone */
 	--contrast-metal: #24292c;
 	/* Dark charcoal gray providing depth */
+
+	--header-height: 2rem;
 }
 
 body {
