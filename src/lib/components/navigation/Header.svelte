@@ -26,7 +26,7 @@
 	header {
 		display: flex;
 		justify-content: space-between;
-		background-color: #333;
+		background-color: var(--contrast-metal);
 		padding: 0 20px;
 	}
 
@@ -38,11 +38,18 @@
 		align-items: center;
 	}
 
+	nav li {
+		position: relative;
+		padding-bottom: 2px;
+	}
+
 	nav li[aria-current='page']::after {
 		content: '';
-		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
 		height: 2px;
 		width: 100%;
-		background: #04aa6d;
+		background: var(--light-orange);
 	}
 </style>

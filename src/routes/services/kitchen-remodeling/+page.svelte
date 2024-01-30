@@ -1,5 +1,9 @@
+<script lang-="ts">
+	import { siteConstants } from '$lib/site-constants';
+</script>
+
 <svelte:head>
-	<title>ModernCraftPDX - Kitchen Remodeling</title>
+	<title>{siteConstants.businessName} - Kitchen Remodeling</title>
 	<meta name="" content="" />
 </svelte:head>
 

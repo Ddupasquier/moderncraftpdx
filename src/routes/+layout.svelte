@@ -1,17 +1,18 @@
 <script>
+	import Palette from '$lib/components/palette/Palette.svelte';
 	import Header from '../lib/components/navigation/Header.svelte';
 	import './styles.css';
 </script>
 
 <div class="app">
 	<Header />
+	<Palette />
 
 	<main>
 		<slot />
 	</main>
 
-	<footer>
-	</footer>
+	<footer></footer>
 </div>
 
 <style>

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {page} from '$app/stores';
 
 	interface NavItemProps {
 		href?: string;
@@ -89,7 +88,7 @@
 		background-color: transparent;
 		border: none;
 		color: white;
-		padding: .3rem 1.25rem;
+		padding: 0.3rem 1.25rem;
 		font-size: 1.1rem;
 		transition: background-color 0.3s ease;
 		text-decoration: none;
