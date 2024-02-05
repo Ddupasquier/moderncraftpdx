@@ -20,15 +20,11 @@
 <style>
 	.team-member {
 		display: flex;
+    align-content: stretch;
 		background: var(--light-steel);
-		height: 15rem;
-		width: 25rem;
 		padding: 0.5rem;
 		overflow: hidden;
-
-		@media (max-width: 768px) {
-			width: 100%;
-		}
+    max-width: 25rem;
 	}
 
 	.team-member-image {
@@ -54,4 +50,14 @@
 	.team-member-bio {
 		margin: 0;
 	}
+
+  @media (max-width: 768px) {
+    .team-member {
+      width: 100%;
+    }
+
+    .team-member-image {
+      max-width: 12rem;
+    }
+  }
 </style>
