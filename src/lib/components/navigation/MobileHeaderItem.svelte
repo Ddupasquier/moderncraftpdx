@@ -44,6 +44,9 @@
 			title={navItem.title}
 			id={navItem.id}
 			on:click={openDropdown}
+			on:mouseenter={openDropdown}
+			on:focus={openDropdown}
+			
 		>
 			<div class="item-text">
 				{navItem.text}
