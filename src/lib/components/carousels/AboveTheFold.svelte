@@ -71,7 +71,7 @@
 	</div>
 </div>
 
-<style>
+<style lang="scss">
 	.carousel {
 		position: relative;
 		height: 100vh;

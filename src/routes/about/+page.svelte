@@ -1,5 +1,6 @@
 <script lang-="ts">
-	import { siteConstants } from '$lib/site-constants';
+	import TeamSection from '$lib/components/shared/team/TeamSection.svelte';
+import { siteConstants } from '$lib/site-constants';
 </script>
 
 <svelte:head>
@@ -7,4 +8,4 @@
 	<meta name="" content="" />
 </svelte:head>
 
-About
+<TeamSection />

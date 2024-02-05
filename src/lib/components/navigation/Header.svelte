@@ -27,6 +27,7 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		background-color: var(--contrast-metal);
 		height: var(--header-height);
 		z-index: 1000;
@@ -48,7 +49,7 @@
 	nav li[aria-current='page']::after {
 		content: '';
 		position: absolute;
-		bottom: 0;
+		bottom: -0.5rem;
 		left: 0;
 		height: 2px;
 		width: 100%;

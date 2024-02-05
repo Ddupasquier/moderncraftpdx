@@ -17,24 +17,11 @@
 	export let navItem: NavItemProps;
 
 	let dropdownVisible = false;
-	let dropdownRef: HTMLButtonElement;
 
-	const closeDropdown = () => {
-		dropdownVisible = false;
-	};
-
-	const openDropdown = () => {
-		dropdownVisible = true;
-	};
-
-	const handleClickOutside = (event: MouseEvent) => {
-		if (dropdownRef && !dropdownRef.contains(event.target as Node)) {
-			closeDropdown();
-		}
+	const toggleDropdown = () => {
+		dropdownVisible = !dropdownVisible;
 	};
 </script>
-
-<svelte:window on:click={handleClickOutside} />
 
 <div class="header-item">
 	{#if navItem.dropdown}
@@ -43,13 +30,23 @@
 			style={navItem.style}
 			title={navItem.title}
 			id={navItem.id}
-			on:mouseenter={openDropdown}
-			bind:this={dropdownRef}
+			on:click|stopPropagation={toggleDropdown}
+			on:mouseenter={toggleDropdown}
+			on:mouseleave={toggleDropdown}
 		>
-			{navItem.text}
-			<span class="chevron">{dropdownVisible ? '▲' : '▼'}</span>
+			<div class="item-text">
+				{navItem.text}
+				<span class="chevron">{dropdownVisible ? '▲' : '▼'}</span>
+			</div>
 			{#if dropdownVisible && navItem.dropdownItems}
-				<div class="dropdown" in:slide>
+				<div
+					class="dropdown"
+					in:slide
+					on:mouseout={toggleDropdown}
+					on:blur={toggleDropdown}
+					role="menu"
+					tabindex="0"
+				>
 					<div class="dropdown-content">
 						{#each navItem.dropdownItems as item}
 							<a href={item.href}>{item.text}</a>
@@ -61,7 +58,7 @@
 	{:else}
 		<a
 			href={navItem.href}
-			class="{navItem.classList} header-link"
+			class="{navItem.classList} header-link item-text"
 			style={navItem.style}
 			target={navItem.target}
 			rel={navItem.rel}
@@ -76,7 +73,7 @@
 <style>
 	.header-item {
 		position: relative;
-		display: inline-flex;
+		display: flex;
 		align-items: center;
 		text-align: center;
 		cursor: pointer;
@@ -84,16 +81,23 @@
 
 	.header-link,
 	.header-item button {
+		width: 100%;
 		background-color: transparent;
 		border: none;
 		color: white;
-		padding: 0.3rem 1.25rem;
+		padding: 0.3rem 0;
 		font-size: 1.1rem;
 		transition: background-color 0.3s ease;
 		text-decoration: none;
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.5rem;
 	}
+
+    .item-text {
+        padding-left: 1rem;
+    }
 
 	.chevron {
 		margin-top: 0.5rem;
@@ -103,9 +107,8 @@
 
 	.dropdown {
 		display: none;
-		position: absolute;
-		background-color: white;
-		width: max-content;
+		background-color: var(--off-white-plum);
+		width: 100%;
 		box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
 		z-index: 1;
 		top: var(--header-height);
