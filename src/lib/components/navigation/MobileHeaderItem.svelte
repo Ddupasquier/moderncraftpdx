@@ -43,7 +43,7 @@
 			style={navItem.style}
 			title={navItem.title}
 			id={navItem.id}
-			on:mouseenter={openDropdown}
+			on:click={openDropdown}
 		>
 			<div class="item-text">
 				{navItem.text}
