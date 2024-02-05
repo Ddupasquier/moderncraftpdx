@@ -18,18 +18,21 @@
 
 	let dropdownVisible = false;
 	let dropdownRef: HTMLDivElement;
+	let isListeningForOutsideClicks = false;
 
-	const openDropdown = () => {
-		dropdownVisible = true;
-	};
+	const toggleDropdown = () => {
+		dropdownVisible = !dropdownVisible;
 
-	const closeDropdown = () => {
-		dropdownVisible = false;
+		// Start listening for outside clicks only if the dropdown becomes visible
+		if (dropdownVisible) {
+			isListeningForOutsideClicks = true;
+		}
 	};
 
 	const handleClickOutside = (event: MouseEvent) => {
-		if (dropdownRef && !dropdownRef.contains(event.target as Node)) {
-			closeDropdown();
+		if (isListeningForOutsideClicks && dropdownRef && !dropdownRef.contains(event.target as Node)) {
+			toggleDropdown();
+			isListeningForOutsideClicks = false; // Stop listening since the dropdown is closed now
 		}
 	};
 </script>
@@ -43,10 +46,7 @@
 			style={navItem.style}
 			title={navItem.title}
 			id={navItem.id}
-			on:click={openDropdown}
-			on:mouseenter={openDropdown}
-			on:focus={openDropdown}
-			
+			on:click={toggleDropdown}
 		>
 			<div class="item-text">
 				{navItem.text}
