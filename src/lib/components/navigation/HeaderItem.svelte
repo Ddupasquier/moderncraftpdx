@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	interface NavItemProps {
 		href?: string;
 		classList?: string;
@@ -15,28 +13,12 @@
 	}
 
 	export let navItem: NavItemProps;
-	export let index: number | null = null;
 
 	let dropdownVisible = false;
 
 	const toggleDropdown = () => {
 		dropdownVisible = !dropdownVisible;
 	};
-
-	onMount(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			const target = event.target as Element;
-			if (!target.closest('.header-item')) {
-				dropdownVisible = false;
-			}
-		};
-
-		window.addEventListener('click', handleClickOutside);
-
-		return () => {
-			window.removeEventListener('click', handleClickOutside);
-		};
-	});
 </script>
 
 <div class="header-item">
@@ -47,6 +29,8 @@
 			title={navItem.title}
 			id={navItem.id}
 			on:click|stopPropagation={toggleDropdown}
+			on:mouseenter={toggleDropdown}
+			on:mouseleave={toggleDropdown}
 		>
 			{navItem.text}
 			<span class="chevron">{dropdownVisible ? '▲' : '▼'}</span>

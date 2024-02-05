@@ -6,7 +6,7 @@ export const navItems = [
             { text: 'Kitchen Remodeling', href: '/services/kitchen-remodeling' },
             { text: 'Bathroom Remodeling', href: '/services/bathroom-remodeling' },
             { text: 'Basement Remodeling', href: '/services/basement-remodeling' },
-            { text: 'Cabinetry', href: '/services/cabinetry' },
+            { text: 'Custom Cabinetry', href: '/services/custom-cabinetry' },
             { text: 'Custom Furniture', href: '/services/custom-furniture' },
         ]
     },
@@ -17,7 +17,7 @@ export const navItems = [
             { text: "Kitchen Portfolios", href: '/portfolios/kitchen-portfolios' },
             { text: "Bathroom Portfolios", href: '/portfolios/bathroom-portfolios' },
             { text: "Basement Portfolios", href: '/portfolios/basement-portfolios' },
-            { text: "Cabinetry Portfolios", href: '/portfolios/cabinetry-portfolios' },
+            { text: "Custom Cabinetry Portfolios", href: '/portfolios/custom-cabinetry-portfolios' },
             { text: "Custom Furniture Portfolios", href: '/portfolios/custom-furniture-portfolios' },
         ]
     },

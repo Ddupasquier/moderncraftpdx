@@ -14,9 +14,9 @@
 
 	<nav>
 		<ul>
-			{#each navItems as item, i}
+			{#each navItems as item}
 				<li aria-current={$page.url.pathname === item.href ? 'page' : undefined}>
-					<HeaderItem navItem={item} index={i} />
+					<HeaderItem navItem={item} />
 				</li>
 			{/each}
 		</ul>

@@ -1,4 +1,5 @@
 <script>
+	import Footer from '$lib/components/navigation/Footer.svelte';
 	import Palette from '$lib/components/palette/Palette.svelte';
 	import Header from '../lib/components/navigation/Header.svelte';
 	import './styles.css';
@@ -6,13 +7,13 @@
 
 <div class="app">
 	<!-- <Palette /> -->
-	
+
 	<main>
 		<Header />
 		<slot />
 	</main>
 
-	<footer></footer>
+	<Footer />
 </div>
 
 <style>
@@ -29,19 +30,5 @@
 		width: 100%;
 		margin: 0 auto;
 		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
 	}
 </style>
