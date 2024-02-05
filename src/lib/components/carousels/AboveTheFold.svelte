@@ -74,7 +74,7 @@
 <style lang="scss">
 	.carousel {
 		position: relative;
-		height: 100vh;
+		height: calc(100vh - 12rem);
 		overflow: hidden;
 	}
 

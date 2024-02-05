@@ -17,11 +17,24 @@
 	export let navItem: NavItemProps;
 
 	let dropdownVisible = false;
+	let dropdownRef: HTMLDivElement;
 
-	const toggleDropdown = () => {
-		dropdownVisible = !dropdownVisible;
+	const openDropdown = () => {
+		dropdownVisible = true;
+	};
+
+	const closeDropdown = () => {
+		dropdownVisible = false;
+	};
+
+	const handleClickOutside = (event: MouseEvent) => {
+		if (dropdownRef && !dropdownRef.contains(event.target as Node)) {
+			closeDropdown();
+		}
 	};
 </script>
+
+<svelte:window on:click={handleClickOutside} />
 
 <div class="header-item">
 	{#if navItem.dropdown}
@@ -30,23 +43,14 @@
 			style={navItem.style}
 			title={navItem.title}
 			id={navItem.id}
-			on:click|stopPropagation={toggleDropdown}
-			on:mouseenter={toggleDropdown}
-			on:mouseleave={toggleDropdown}
+			on:mouseenter={openDropdown}
 		>
 			<div class="item-text">
 				{navItem.text}
 				<span class="chevron">{dropdownVisible ? '▲' : '▼'}</span>
 			</div>
 			{#if dropdownVisible && navItem.dropdownItems}
-				<div
-					class="dropdown"
-					in:slide
-					on:mouseout={toggleDropdown}
-					on:blur={toggleDropdown}
-					role="menu"
-					tabindex="0"
-				>
+				<div class="dropdown" in:slide role="menu" tabindex="0" bind:this={dropdownRef}>
 					<div class="dropdown-content">
 						{#each navItem.dropdownItems as item}
 							<a href={item.href}>{item.text}</a>
@@ -95,9 +99,9 @@
 		gap: 0.5rem;
 	}
 
-    .item-text {
-        padding-left: 1rem;
-    }
+	.item-text {
+		padding-left: 1rem;
+	}
 
 	.chevron {
 		margin-top: 0.5rem;
